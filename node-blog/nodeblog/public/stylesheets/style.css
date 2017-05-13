@@ -64,7 +64,7 @@ nav a.current, nav a:hover{
 	color: #000;
 } 
 
-.post a {
+.post h1 a {
 	color: #666;
 	text-decoration: none;
 }
@@ -75,6 +75,8 @@ nav a.current, nav a:hover{
 	background: #ccc;
 	margin-bottom: 10px;
 }
+
+
 
 a.more {
 	display: block;
@@ -116,11 +118,20 @@ textarea {
 	width: 400px;
 }
 
+ul.success li {
+	padding:15px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	color: #3c763d;
+	background-color: #d6e9c6;
+	list-style: none;
+}
 
-
-
-
-
+.post img {
+	width: 100%;
+}
 
 
 

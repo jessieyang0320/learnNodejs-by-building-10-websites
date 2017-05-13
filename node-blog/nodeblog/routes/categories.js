@@ -7,6 +7,22 @@ var router = express.Router();
 var mongo = require('mongodb');
 var db = require('monk')('localhost/nodeblog');
 
+
+// show posts under a certain category
+
+router.get('/show/:category', function(req, res, next) {
+    var posts = db.get('posts');
+
+	posts.find({category: req.params.category},{},function(err, posts){
+			res.render('index',{
+  	             'title':req.params.category,
+  	             'posts': posts
+            })
+	})
+  
+});
+
+
 /* add post route, get the form */
 router.get('/add', function(req, res, next) {
 	
@@ -17,6 +33,8 @@ router.get('/add', function(req, res, next) {
 	})
   
 });
+
+
 
 // we are using multer, include upload...as a parameter and require multer
 // in this file
