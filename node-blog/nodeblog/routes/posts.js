@@ -7,6 +7,22 @@ var upload = multer({dest:'./public/images'});
 var mongo = require('mongodb');
 var db = require('monk')('localhost/nodeblog');
 
+
+/* show a post */
+router.get('/show/:id', function(req, res, next) {
+	var posts = db.get('posts');
+
+	posts.findById(req.params.id,function(err, post){
+			res.render('show',{
+  	             
+  	             'post': post
+            })
+	})
+  
+});
+
+
+
 /* add post route, get the form */
 router.get('/add', function(req, res, next) {
 	var categories = db.get('categories');
