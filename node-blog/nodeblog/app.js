@@ -7,12 +7,13 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var multer = require('multer');
 var upload = multer({dest:'./uploads'});
-var moment = require('moment');
-var mongo = require('mongodb');
+// var moment = require('moment');
+
 var flash = require('connect-flash');
 
 var expressValidator = require('express-validator');
 
+var mongo = require('mongodb');
 var db = require('monk')('localhost/nodeblog');
 
 
@@ -21,6 +22,8 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+// make moment global, so that we can use it in views
+app.locals.moment = require('moment');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
