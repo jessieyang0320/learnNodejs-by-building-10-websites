@@ -20,6 +20,7 @@ var db = require('monk')('localhost/nodeblog');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var posts = require('./routes/posts');
 
 var app = express();
 // make moment global, so that we can use it in views
@@ -86,6 +87,7 @@ app.use(function(req,res,next){
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/posts',posts)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
