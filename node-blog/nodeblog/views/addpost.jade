@@ -12,7 +12,9 @@ block content
   .form-group
    label Category:
    select.form-control(name='category')
-  .form-group
+    each category, i in categories
+     option(value='#{category.name}') #{category.name}
+  .form-group 
    label Body:
    textarea.form-control(name='body',id='body')
   .form-group
@@ -24,3 +26,6 @@ block content
      option(value='Brad T') Brad T
      option(value='Jessie Y') Jessie Y
   input.btn.btn-default(type='submit',name='submit',value='save')
+  script(src='/ckeditor/ckeditor.js')
+  script
+    | CKEDITOR.replace('body');
